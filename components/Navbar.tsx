@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { BUSINESS_INFO, NAV_ITEMS } from '../constants';
+import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,13 +31,10 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 md:h-20">
+        <div className="flex justify-between h-20 md:h-24">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <div className="text-plumbing-blue font-black text-xl md:text-2xl leading-tight">
-                ADITYA <br className="md:hidden" />
-                <span className="text-orange-500">PLUMBING</span>
-              </div>
+              <Logo />
             </Link>
           </div>
 
@@ -50,14 +48,14 @@ const Navbar: React.FC = () => {
                   isActive(item.href)
                     ? 'text-plumbing-blue font-bold border-b-2 border-plumbing-blue'
                     : 'text-slate-600 hover:text-plumbing-blue font-medium'
-                } px-1 py-2 text-sm transition-colors duration-200`}
+                } px-1 py-2 text-sm transition-colors duration-200 uppercase tracking-wide`}
               >
                 {item.label}
               </Link>
             ))}
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="bg-plumbing-blue text-white px-5 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-sky-900 transition-all shadow-md active:scale-95"
+              className="bg-plumbing-blue text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-sky-900 transition-all shadow-lg active:scale-95"
             >
               <Phone size={18} /> Call Now
             </a>
@@ -67,7 +65,7 @@ const Navbar: React.FC = () => {
           <div className="flex md:hidden items-center gap-2">
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="bg-plumbing-blue text-white p-2.5 rounded-full shadow-md active:scale-95"
+              className="bg-plumbing-blue text-white p-3 rounded-full shadow-md active:scale-95"
             >
               <Phone size={20} />
             </a>
